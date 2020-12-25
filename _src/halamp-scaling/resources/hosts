@@ -1,0 +1,30 @@
+# Floating IP
+10.11.12.50 vip
+
+# Public Addresses
+10.11.12.51 server01
+10.11.12.52 server02
+10.11.12.61 db01
+10.11.12.62 db02
+10.11.12.63 db03
+
+# Private Addresses
+192.168.12.51 server01-private
+192.168.12.52 server02-private
+192.168.12.61 db01-private
+192.168.12.62 db02-private
+192.168.12.63 db03-private
+
+
+# Scaling
+# Public Addresses
+10.11.12.53 server03
+10.11.12.54 server04
+10.11.12.64 db04
+10.11.12.65 db05
+
+# Private Addresses
+192.168.12.53 server03-private
+192.168.12.54 server04-private
+192.168.12.64 db04-private
+192.168.12.65 db05-private

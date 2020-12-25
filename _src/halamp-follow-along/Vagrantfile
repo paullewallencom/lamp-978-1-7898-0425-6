@@ -1,0 +1,42 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "server01" do |server01|
+    server01.vm.box = "ubuntu/trusty64"
+    server01.vm.hostname = "server01"
+    server01.vm.network :private_network, ip: "10.11.12.51"
+    server01.vm.network :private_network, ip: "192.168.12.51", virtualbox__intnet: true
+  end
+
+  config.vm.define "server02" do |server02|
+    server02.vm.box = "ubuntu/trusty64"
+    server02.vm.hostname = "server02"
+    server02.vm.network :private_network, ip: "10.11.12.52"
+    server02.vm.network :private_network, ip: "192.168.12.52", virtualbox__intnet: true
+  end
+
+  config.vm.define "db01" do |db01|
+    db01.vm.box = "ubuntu/trusty64"
+    db01.vm.hostname = "db01"
+    db01.vm.network :private_network, ip: "10.11.12.61"
+    db01.vm.network :private_network, ip: "192.168.12.61", virtualbox__intnet: true
+  end
+
+  config.vm.define "db02" do |db02|
+    db02.vm.box = "ubuntu/trusty64"
+    db02.vm.hostname = "db02"
+    db02.vm.network :private_network, ip: "10.11.12.62"
+    db02.vm.network :private_network, ip: "192.168.12.62", virtualbox__intnet: true
+  end
+
+  config.vm.define "db03" do |db03|
+    db03.vm.box = "ubuntu/trusty64"
+    db03.vm.hostname = "db03"
+    db03.vm.network :private_network, ip: "10.11.12.63"
+    db03.vm.network :private_network, ip: "192.168.12.63", virtualbox__intnet: true
+  end
+
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "320"]
+  end
+end
